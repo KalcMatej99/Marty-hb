@@ -1,0 +1,51 @@
+{
+  "name": "telegram-sender",
+  "version": "1.0.0",
+  "description": "Api that sends messages to telegram",
+  "main": "server.js",
+  "scripts": {
+    "devStart": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Qupkiii/telegram-sender.git"
+  },
+  "author": "Qupkiii",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Qupkiii/telegram-sender/issues"
+  },
+  "homepage": "https://github.com/Qupkiii/telegram-sender#readme",
+  "dependencies": {
+    "axios": "*",
+    "chart.js": "*",
+    "compression": "*",
+    "cookie-parser": "*",
+    "debug": "*",
+    "dotenv": "*",
+    "express": "*",
+    "express-jwt": "*",
+    "express-session": "*",
+    "hbs": "*",
+    "http-errors": "*",
+    "image-conversion": "*",
+    "image-js": "*",
+    "leaflet": "*",
+    "mongodb": "*",
+    "mongoose": "*",
+    "morgan": "*",
+    "ng2-charts": "*",
+    "node-fetch": "*",
+    "node-telegram-bot-api": "*",
+    "nodemailer": "*",
+    "nodemon": "*",
+    "openapi-types": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "path": "*",
+    "webdriver-manager": "*",
+    "xhr2": "*",
+    "xmlhttprequest": "*"
+  }
+}

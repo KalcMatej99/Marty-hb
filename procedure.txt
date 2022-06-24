@@ -1,0 +1,5 @@
+sudo systemctl start docker
+sudo docker-compose stop
+sudo docker-compose build
+sudo docker-compose up --no-start
+sudo docker start marty-hb-mongodb
