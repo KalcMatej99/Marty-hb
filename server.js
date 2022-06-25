@@ -338,7 +338,7 @@ function send_GM_messages() {
         if (error) {
             bot.sendMessage(chatId, "Mistake on API side when searching.");
         } else {
-            for(var i = 0; i < users.length; i++){
+            for (var i = 0; i < users.length; i++) {
                 var user = users[i];
                 send_message(user.chat_id, true);
             }
@@ -347,10 +347,10 @@ function send_GM_messages() {
 }
 
 var now = new Date();
-console.log(now);
-var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 8, 52, 0, 0) - now;
+
+var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 6, 0, 0, 0) - now;
 if (millisTill10 < 0) {
-    millisTill10 += 86400000; // it's after 10am, try 10am tomorrow.
+    millisTill10 += 86400000;
 }
 
 setTimeout(function () { send_GM_messages() }, millisTill10);
