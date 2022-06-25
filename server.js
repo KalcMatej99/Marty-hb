@@ -331,6 +331,46 @@ bot.onText(/\/add/, (msg, match) => {
 });
 
 
+bot.onText(/\/all/, (msg, match) => {
+    const chatId = msg.from.id;
+
+    check_authentication(chatId, function (is_authenticated) {
+        if (!is_authenticated) {
+            bot.sendMessage(chatId, notAuthenticatedMessage);
+        } else {
+            bot.sendMessage(chatId, "Pošlji sporočilo vsem s tem da odgovoriš na to sporočilo.").then(function (res) {
+
+                check_authentication(chatId, function (is_authenticated) {
+                    if (!is_authenticated) {
+                        bot.sendMessage(chatId, notAuthenticatedMessage);
+                    } else {
+                        bot.onReplyToMessage(res.chat.id, res.message_id, function (message) {
+
+                            check_authentication(chatId, function (is_authenticated) {
+                                if (!is_authenticated) {
+                                    bot.sendMessage(chatId, notAuthenticatedMessage);
+                                } else {
+                                    User.find({}, function (error, users) {
+
+                                        if (error) {
+                                            bot.sendMessage(chatId, "Mistake on API side when searching.");
+                                        } else {
+                                            for (var i = 0; i < users.length; i++) {
+                                                var user = users[i];
+                                                bot.sendMessage(user.chat_id, message.text)
+                                            }
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    }
+                });
+            });
+        }
+    });
+});
+
 function send_GM_messages() {
 
     User.find({}, function (error, users) {
